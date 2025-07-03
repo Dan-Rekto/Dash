@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private val IOT_DEVICE_IP = "192.168.1.112"
     private val IOT_DEVICE_PORT = 8888
     private var penentu = true
-
+    val satu = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
