@@ -9,67 +9,79 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.net.Socket
-import com.example.dash.R
-
-
 class MainActivity : AppCompatActivity() {
-
-    // --- CHANGE THIS to the IP address from your ESP8266/ESP32 ---
+    private lateinit var switchAuto: Switch
+    private lateinit var switchSiram: Switch
     private val IOT_DEVICE_IP = "192.168.1.112"
-    // -----------------------------------------------------------
     private val IOT_DEVICE_PORT = 8888
+    private var penentu = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Make sure you have a layout file named 'main.xml' in your res/layout folder
         setContentView(R.layout.main)
 
-        // It's better to use SwitchCompat from the Material library
-        val switchAuto: Switch = findViewById(R.id.switchAuto)
-        val switchSiram: Switch = findViewById(R.id.switchSiram)
+        switchAuto = findViewById(R.id.switchAuto)
+        switchSiram = findViewById(R.id.switchSiram)
 
-        // For a Switch, it's best to use setOnCheckedChangeListener
-        // This code block will execute whenever the switch is toggled ON or OFF
         switchAuto.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                // When the switch is toggled ON
-                sendCommand("1")
-                Toast.makeText(this, "Penyiram Otomatis Akan Menyala Jam 10 dan Jam 16!", Toast.LENGTH_LONG).show()
-            } else {
-                // When the switch is toggled OFF
-                sendCommand("0")
-                Toast.makeText(this, "Penyiram Otomatis Dimatikan", Toast.LENGTH_SHORT).show()
-            }
+            val cmd = if (isChecked) "1" else "0"
+            sendCommand(cmd)
+            Toast.makeText(this,
+                if (isChecked) "Penyiram Otomatis Akan Menyala Jam 10 dan Jam 16!" else "Penyiram Otomatis Dimatikan",
+                Toast.LENGTH_SHORT).show()
         }
 
-        // You can do the same for your other switch
         switchSiram.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                // Send a different command for this switch if you want, e.g., "A"
-                sendCommand("A")
-                Toast.makeText(this, "Penyiram Menyala!", Toast.LENGTH_SHORT).show()
-            } else {
-                // e.g., "B"
-                sendCommand("B")
-                Toast.makeText(this, "Penyiram Mati!", Toast.LENGTH_SHORT).show()
-            }
+            val cmd = if (isChecked) "A" else "B"
+            sendCommand(cmd)
+            Toast.makeText(this,
+                if (isChecked) "Penyiram Menyala!" else "Penyiram Mati!",
+                Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun sendCommand(command: String) {
-        // Use Kotlin Coroutines to run network code on a background thread
         lifecycleScope.launch(Dispatchers.IO) {
             try {
                 Log.d("TcpClient", "Sending command: $command")
-                val socket = Socket(IOT_DEVICE_IP, IOT_DEVICE_PORT)
-                socket.outputStream.write(command.toByteArray())
-                socket.close()
+                Socket(IOT_DEVICE_IP, IOT_DEVICE_PORT).use { socket ->
+                    socket.outputStream.write(command.toByteArray())
+                }
                 Log.d("TcpClient", "Command sent successfully.")
             } catch (e: Exception) {
-                // Handle errors
                 Log.e("TcpClient", "Error: ${e.message}")
-                e.printStackTrace()
             }
         }
     }
+
+    private fun kirim() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            while (penentu) {
+                val cmdAuto = if (switchAuto.isChecked) "1" else "0"
+                val cmdSiram = if (switchSiram.isChecked) "A" else "B"
+
+                sendCommand(cmdSiram)
+                Thread.sleep(2000) // Di background thread, boleh
+            }
+        }
+    }
+
+    private fun kirim1() {
+        lifecycleScope.launch(Dispatchers.IO) {
+            while (penentu) {
+                val cmdAuto = if (switchAuto.isChecked) "1" else "0"
+                val cmdSiram = if (switchSiram.isChecked) "A" else "B"
+
+                sendCommand(cmdAuto)
+                Thread.sleep(2000) // Di background thread, boleh
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        penentu = true
+        kirim()
+    }
+
 }
