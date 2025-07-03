@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="#FFFFFF" />
+
+    <!-- Semakin besar radius, semakin bulat -->
+    <corners android:radius="50dp" />
+</shape>

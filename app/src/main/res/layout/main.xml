@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fffbfb"
+    android:padding="16dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="110dp"
+            android:src="@mipmap/ic_launcher_foreground"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent" />
+    </FrameLayout>
+    <!-- Title & Icon -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Dash"
+        android:fontFamily="@font/mont"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="35dp"
+        android:gravity="center_horizontal"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="#444"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fun Projects by Danish Fattah Azizi/XII-1"
+        android:fontFamily="@font/mont"
+        android:layout_marginRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+        android:gravity="center_horizontal"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textColor="#444"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/onoff"
+            app:layout_constraintBottom_toBottomOf="@id/esp"
+            app:layout_constraintLeft_toRightOf="@id/esp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"/>
+
+    <TextView
+        android:id="@+id/esp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status ESP32"
+        android:fontFamily="@font/mont"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toTopOf="@id/by"
+        app:layout_constraintTop_toTopOf="@id/cardSiram"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_horizontal"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:textColor="#444"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <!-- Siram Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSiram"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="8dp"
+        android:background="@color/gray"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/tvSiram"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="          Siram💧"
+                android:textColor="#444"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Switch
+                android:id="@+id/switchSiram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumbTint="@color/white"
+                android:trackTint="@color/green_light" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Siram Otomatis Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardAuto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@id/cardSiram"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/tvAuto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                android:text="          Siram Otomatis🌊"
+                android:textColor="#444"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Switch
+                android:id="@+id/switchAuto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:thumbTint="@color/white"
+                android:trackTint="@color/green_light" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Baterai Panel Surya Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardBattery"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@id/cardAuto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvBatteryTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Baterai Panel Surya⛅"
+                android:textColor="#444"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvBatteryPct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="--%"
+                android:textColor="#666"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Last Time Disiram Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardLastTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@id/cardBattery"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvLastTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Time Disiram🌱"
+                android:textColor="#444"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvLastTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="WIB 14:00"
+                android:textColor="#666"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Chart Placeholder -->
+    <View
+        android:id="@+id/chartPlaceholder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bulet"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardLastTime" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="150dp"
+    android:height="240dp"
+    android:viewportWidth="150"
+    android:viewportHeight="240">
+
+    <!-- Batang pohon -->
+    <path
+        android:fillColor="#8D6E63"
+        android:pathData="M70,140 L80,140 L80,200 L70,200 Z" />
+
+    <!-- Daun layer bawah -->
+    <path
+        android:fillColor="#1B5E20"
+        android:pathData="M20,140 L75,105 L130,140 Z" />
+
+    <!-- Daun layer tengah-bawah -->
+    <path
+        android:fillColor="#2E7D32"
+        android:pathData="M25,115 L75,80 L125,115 Z" />
+
+    <!-- Daun layer tengah-atas -->
+    <path
+        android:fillColor="#388E3C"
+        android:pathData="M30,90 L75,55 L120,90 Z" />
+
+    <!-- Daun layer atas -->
+    <path
+        android:fillColor="#43A047"
+        android:pathData="M35,65 L75,30 L115,65 Z" />
+
+    <!-- Puncak pohon -->
+    <path
+        android:fillColor="#1E6923"
+        android:pathData="M65,30 L75,0 L85,30 Z" />
+
+    <!-- Kabel berwarna di bawah -->
+    <!-- Kuning -->
+    <path
+        android:strokeColor="#FFEB3B"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M75,200 L75,230" />
+    <!-- Merah -->
+    <path
+        android:strokeColor="#F44336"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M65,200 L65,230" />
+    <!-- Biru -->
+    <path
+        android:strokeColor="#2196F3"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M85,200 L85,230" />
+    <!-- Hijau -->
+    <path
+        android:strokeColor="#4CAF50"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M55,200 L55,230" />
+    <!-- Hitam -->
+    <path
+        android:strokeColor="#212121"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M95,200 L95,230" />
+    <!-- Oranye -->
+    <path
+        android:strokeColor="#FF9800"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M45,200 L45,230" />
+    <!-- Coklat -->
+    <path
+        android:strokeColor="#795548"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M105,200 L105,230" />
+    <!-- Abu-abu -->
+    <path
+        android:strokeColor="#9E9E9E"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M35,200 L35,230" />
+    <!-- Ungu -->
+    <path
+        android:strokeColor="#9C27B0"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M115,200 L115,230" />
+    <!-- Merah muda -->
+    <path
+        android:strokeColor="#E91E63"
+        android:strokeWidth="4"
+        android:fillColor="@android:color/transparent"
+        android:pathData="M25,200 L25,230" />
+</vector>
