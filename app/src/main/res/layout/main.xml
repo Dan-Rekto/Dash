@@ -58,13 +58,25 @@
         />
 
         <ImageView
+            android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/onoff"
-            app:layout_constraintBottom_toBottomOf="@id/esp"
-            app:layout_constraintLeft_toRightOf="@id/esp"
+            app:layout_constraintBottom_toBottomOf="@id/bagas"
+            app:layout_constraintLeft_toRightOf="@id/bagas"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"/>
+
+    <ImageView
+        android:id="@+id/status2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/buletmerah"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/bagas"
+        app:layout_constraintLeft_toRightOf="@id/bagas" />
 
     <TextView
         android:id="@+id/esp"
@@ -73,6 +85,7 @@
         android:text="Status ESP32"
         android:fontFamily="@font/mont"
         android:layout_marginRight="10dp"
+        android:color="@color/gray"
         android:layout_marginTop="15dp"
         app:layout_constraintBottom_toTopOf="@id/by"
         app:layout_constraintTop_toTopOf="@id/cardSiram"
@@ -83,6 +96,17 @@
         android:textColor="#444"
         app:layout_constraintStart_toStartOf="parent"
         />
+    <TextView
+        android:id="@+id/bagas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status ESP"
+        android:fontFamily="@font/mont"
+        android:textSize="9sp"
+        app:layout_constraintBottom_toBottomOf="@id/by"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="-15dp"/>
     <!-- Siram Card -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardSiram"
